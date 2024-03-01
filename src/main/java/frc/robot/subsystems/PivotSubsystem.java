@@ -4,15 +4,23 @@
 
 package frc.robot.subsystems;
 
+import com.ctre.phoenix6.hardware.TalonFX;
+
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
+import frc.robot.Constants;
 
 public class PivotSubsystem extends SubsystemBase {
   /** Creates a new PivotSubsystem. */
-  
+  private final TalonFX pivotMotor = new TalonFX(Constants.MotorConstants.m_pivotMotor, Constants.MotorConstants.m_CANbus);
   public PivotSubsystem() {}
 
   @Override
   public void periodic() {
     // This method will be called once per scheduler run
   }
+
+  public void pivotRun(double speed){
+    pivotMotor.set(speed);
+  }
+
 }

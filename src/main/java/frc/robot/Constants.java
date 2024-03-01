@@ -17,12 +17,17 @@ public final class Constants {
         public static final String m_CANbus = "CANivoreV1";
     }
 
+    public static final class OIConstants{
+        public static final int m_driverControllerPort = 1;
+        public static final int m_operatorControllerPort = 0;
+    }
+
     public static final class SpeedConstants{
-        public static final double kIntakeSpeed = 0.5;
-        public static final double kPivotSpeed = 0.5;
+        public static final double kIntakeSpeed = .85;
+        public static final double kPivotSpeed = 0.4;
         public static final double kTransitionSpeed = 0.5;
         public static final double kShootTopAmp = 0.5;
-        public static final double kShootBottomAmp = 0.5;
+        public static final double kShootBottomAmp = -0.5;
         public static final double kShootSubwoofer = 0.5;  
         public static final double kShootPodium = 0.5;
         public static final double kNoShoot = 0.3;

@@ -30,6 +30,7 @@ public class RobotContainer {
   private final TransitionSubsystem TransitionSubsystem = new TransitionSubsystem();
   private final ShooterSubsystem shooterSubsystem = new ShooterSubsystem();
   private final PivotSubsystem pivotSubsystem = new PivotSubsystem();
+
   //private final ShooterSubsystem ShooterWoofSubsystem = new ShooterSubsystem();
   //private final ShooterSubsystem ShooterPodiumSubsystem = new ShooterSubsystem();
   //private final ShooterSubsystem ShooterAmpSubsystem = new ShooterSubsystem();
@@ -76,8 +77,8 @@ public class RobotContainer {
                 .onFalse(Commands.runOnce(() -> IntakeSubsystem.intakeRun(0), IntakeSubsystem));
     
     //Transition Buttons
-   // m_driverController.b().onTrue(new RunCommand(() -> TransitionSubsystem.transitionRun(Constants.SpeedConstants.kTransitionSpeed)))
-      //          .onFalse(Commands.runOnce(() -> TransitionSubsystem.transitionRun(0)));
+    m_driverController.b().onTrue(new RunCommand(() -> TransitionSubsystem.transitionRun(Constants.SpeedConstants.kTransitionSpeed), TransitionSubsystem))
+              .onFalse(Commands.runOnce(() -> TransitionSubsystem.transitionRun(0), TransitionSubsystem));
 
     //Shooter Buttons-----------------------------------------------------------------------------------------------lots of them
 
@@ -94,9 +95,9 @@ public class RobotContainer {
     //pivot button
     pivotSubsystem.setDefaultCommand(new RunCommand(() -> pivotSubsystem.pivotRun(m_operatorController.getRightY()*-SpeedConstants.kPivotSpeed), pivotSubsystem));
     //shooter amp
-   /***  joystick.rightBumper().onTrue(new RunCommand(() -> ShooterAmpSubsystem.shooterAmp()))
-                .onFalse(Commands.runOnce(() -> ShooterAmpSubsystem.shooterAmp(0)));
-***/
+     m_driverController.rightBumper().onTrue(new RunCommand(() -> shooterSubsystem.shooterAmp(),shooterSubsystem))
+               .onFalse(Commands.runOnce(() -> shooterSubsystem.shooterSub(0), shooterSubsystem));
+
             
   }
 
@@ -105,6 +106,6 @@ public class RobotContainer {
   }
 
   public Command getAutonomousCommand() {
-    return Commands.print("No autonomous command oooooooo configured");
+    return Commands.print("No autonomous command oooooooo configured");//amanda ong was here...the code works ...
   }
 }

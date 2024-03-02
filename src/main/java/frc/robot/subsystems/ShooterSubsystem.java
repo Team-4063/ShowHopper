@@ -22,13 +22,13 @@ public class ShooterSubsystem extends SubsystemBase {
   }
 
   public void shooterSub(double speed){
-    shooterTopMotor.set(speed);
-    shooterBottomMotor.set(-speed);
+    shooterTopMotor.set(-speed);
+    shooterBottomMotor.set(speed);
   }
   
   public void shooterPodium(double speed){
     shooterTopMotor.set(speed);
-    shooterBottomMotor.set(-speed);
+    shooterBottomMotor.set(speed);
   }
 
   public void shooterAmp(){

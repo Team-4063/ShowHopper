@@ -98,6 +98,10 @@ public class RobotContainer {
      m_driverController.rightBumper().onTrue(new RunCommand(() -> shooterSubsystem.shooterAmp(),shooterSubsystem))
                .onFalse(Commands.runOnce(() -> shooterSubsystem.shooterSub(0), shooterSubsystem));
 
+    //Reverse intake
+    m_driverController.start().onTrue(new RunCommand(() -> IntakeSubsystem.intakeRun(-SpeedConstants.kIntakeSpeed), IntakeSubsystem))
+                .onFalse(Commands.runOnce(() -> IntakeSubsystem.intakeRun(0), IntakeSubsystem));
+
             
   }
 

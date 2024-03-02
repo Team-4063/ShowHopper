@@ -23,7 +23,7 @@ public final class Constants {
     }
 
     public static final class SpeedConstants{
-        public static final double kIntakeSpeed = 1;
+        public static final double kIntakeSpeed = 0.85;
         public static final double kPivotSpeed = 0.4;
         public static final double kTransitionSpeed = 1;
         public static final double kShootTopAmp = -0.2;
@@ -37,5 +37,6 @@ public final class Constants {
         public static final double kPodiumPosition = 0.11;
         public static final double kWoofPosition = 0.15;
         public static final double kAmpPosition = 0.13;
+        public static final int kNotePosition = 200;
     }
 }

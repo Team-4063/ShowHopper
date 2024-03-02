@@ -26,15 +26,15 @@ public class PivotSubsystem extends SubsystemBase {
     // This method will be called once per scheduler run
     boolean connected = pivotEncoder.isConnected();
 
-    int frequency = pivotEncoder.getFrequency();
+    //int frequency = pivotEncoder.getFrequency();
 
     double output = pivotEncoder.get();
 
     double angle = output * 360;
 
     SmartDashboard.putBoolean("Connected", connected);
-    SmartDashboard.putNumber("Frequency", frequency);
-    SmartDashboard.putNumber("Output", output);
+    //SmartDashboard.putNumber("Frequency", frequency);
+    //SmartDashboard.putNumber("Output", output);
     SmartDashboard.putNumber("Angle", angle);
 
   }

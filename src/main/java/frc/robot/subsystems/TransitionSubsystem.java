@@ -45,4 +45,8 @@ public class TransitionSubsystem extends SubsystemBase {
   public void transitionRun(double speed){
     transitionMotor.set(speed);
   }
+
+  public int notePosition(){
+    return m_colorSensor.getProximity();
+  }
 }

@@ -13,10 +13,13 @@ import edu.wpi.first.math.geometry.Rotation2d;
 import edu.wpi.first.math.geometry.Translation2d;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.Commands;
+import edu.wpi.first.wpilibj2.command.ParallelCommandGroup;
 import edu.wpi.first.wpilibj2.command.RunCommand;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import frc.robot.Constants.OIConstants;
 import frc.robot.Constants.SpeedConstants;
+import frc.robot.commands.IntakeControl;
+import frc.robot.commands.IntakeStop;
 import frc.robot.generated.TunerConstants;
 import frc.robot.subsystems.IntakeSubsystem;
 import frc.robot.subsystems.PivotSubsystem;
@@ -73,8 +76,8 @@ public class RobotContainer {
    
 
     //intake Buttons
-    m_driverController.a().onTrue(new RunCommand(() -> IntakeSubsystem.intakeRun(Constants.SpeedConstants.kIntakeSpeed), IntakeSubsystem))
-                .onFalse(Commands.runOnce(() -> IntakeSubsystem.intakeRun(0), IntakeSubsystem));
+//    m_driverController.a().onTrue(new RunCommand(() -> IntakeSubsystem.intakeRun(Constants.SpeedConstants.kIntakeSpeed), IntakeSubsystem))
+//                .onFalse(Commands.runOnce(() -> IntakeSubsystem.intakeRun(0), IntakeSubsystem));
     
     //Transition Buttons
     m_driverController.b().onTrue(new RunCommand(() -> TransitionSubsystem.transitionRun(Constants.SpeedConstants.kTransitionSpeed), TransitionSubsystem))
@@ -100,6 +103,9 @@ public class RobotContainer {
 
     //Reverse intake
     m_driverController.start().onTrue(new RunCommand(() -> IntakeSubsystem.intakeRun(-SpeedConstants.kIntakeSpeed), IntakeSubsystem))
+                .onFalse(Commands.runOnce(() -> IntakeSubsystem.intakeRun(0), IntakeSubsystem));
+
+    m_operatorController.a().onTrue(new IntakeControl(IntakeSubsystem, TransitionSubsystem))
                 .onFalse(Commands.runOnce(() -> IntakeSubsystem.intakeRun(0), IntakeSubsystem));
 
             

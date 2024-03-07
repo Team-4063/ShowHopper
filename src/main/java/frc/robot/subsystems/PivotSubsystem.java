@@ -44,7 +44,7 @@ public class PivotSubsystem extends SubsystemBase {
   }
 
   public double pivotPosition(){
-    return pivotEncoder.get();
+    return pivotEncoder.get()*360;
   }
 
 }

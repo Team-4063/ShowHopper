@@ -26,10 +26,6 @@ public class ShooterSubsystem extends SubsystemBase {
     shooterBottomMotor.set(speed);
   }
   
-  public void shooterPodium(double speed){
-    shooterTopMotor.set(speed);
-    shooterBottomMotor.set(speed);
-  }
 
   public void shooterAmp(){
     shooterTopMotor.set(Constants.SpeedConstants.kShootTopAmp);

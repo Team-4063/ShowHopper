@@ -8,19 +8,19 @@ import com.ctre.phoenix6.Utils;
 import com.ctre.phoenix6.mechanisms.swerve.SwerveRequest;
 import com.ctre.phoenix6.mechanisms.swerve.SwerveModule.DriveRequestType;
 
+
 import edu.wpi.first.math.geometry.Pose2d;
 import edu.wpi.first.math.geometry.Rotation2d;
 import edu.wpi.first.math.geometry.Translation2d;
+
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.Commands;
-import edu.wpi.first.wpilibj2.command.ParallelCommandGroup;
+
 import edu.wpi.first.wpilibj2.command.RunCommand;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import frc.robot.Constants.OIConstants;
 import frc.robot.Constants.SpeedConstants;
 import frc.robot.commands.IntakeControl;
-import frc.robot.commands.IntakeStop;
-import frc.robot.commands.PivotControl;
 import frc.robot.generated.TunerConstants;
 import frc.robot.subsystems.IntakeSubsystem;
 import frc.robot.subsystems.PivotSubsystem;
@@ -34,6 +34,9 @@ public class RobotContainer {
   private final TransitionSubsystem TransitionSubsystem = new TransitionSubsystem();
   private final ShooterSubsystem shooterSubsystem = new ShooterSubsystem();
   private final PivotSubsystem pivotSubsystem = new PivotSubsystem();
+
+  //private final SendableChooser<Command> autoChooser;
+
  // private final PivotSubsystem m_pivot = new PivotSubsystem();
 
   //private final ShooterSubsystem ShooterWoofSubsystem = new ShooterSubsystem();
@@ -55,6 +58,9 @@ public class RobotContainer {
   private final SwerveRequest.SwerveDriveBrake brake = new SwerveRequest.SwerveDriveBrake();
   private final SwerveRequest.PointWheelsAt point = new SwerveRequest.PointWheelsAt();
   private final Telemetry logger = new Telemetry(MaxSpeed);
+
+  /*Path follower*/
+  private Command runAuto = drivetrain.getAutoPath("testestAuto");
 
   private void configureBindings() {
     drivetrain.setDefaultCommand( // Drivetrain will execute this command periodically
@@ -108,6 +114,10 @@ public class RobotContainer {
                .onFalse(Commands.runOnce(() -> shooterSubsystem.shooterSub(SpeedConstants.kNoShoot), shooterSubsystem));
     //stop shooter
     m_operatorController.povDown().onTrue(Commands.runOnce(() -> shooterSubsystem.shooterSub(0.0), shooterSubsystem));
+
+    //shoot launch
+    m_operatorController.rightBumper().onTrue(new RunCommand(() -> shooterSubsystem.shooterSub(Constants.SpeedConstants.kShootLaunch), shooterSubsystem))
+                .onFalse(Commands.runOnce(() -> shooterSubsystem.shooterSub(SpeedConstants.kNoShoot), shooterSubsystem));
     
 
 
@@ -128,9 +138,18 @@ public class RobotContainer {
 
   public RobotContainer() {
     configureBindings();
+
+    //NamedCommands.registerCommand("Shoot", new ShooterControl(shooterSubsystem));
+
+    //Command runAuto = drivetrain.getAutoPath("testestAuto");
+    //autoChooser = AutoBuilder.buildAutoChooser();
+    //SmartDashboard.putData("Auto Mode", autoChooser);
+
   }
 
   public Command getAutonomousCommand() {
+    //return autoChooser.getSelected();
+    //return runAuto;
     return Commands.print("No autonomous command oooooooo configured");//amanda ong was here...the code works ...
   }
 }

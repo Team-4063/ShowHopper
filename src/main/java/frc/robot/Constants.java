@@ -29,8 +29,9 @@ public final class Constants {
         public static final double kShootTopAmp = -0.2;
         public static final double kShootBottomAmp = 0.4;
         public static final double kShootSubwoofer = 0.65;  
-        public static final double kShootPodium = 0.5;
+        public static final double kShootPodium = 0.9;
         public static final double kNoShoot = 0.15;
+        public static final double kShootLaunch = 0.75;
     }
 
     public static final class SensorConstants{

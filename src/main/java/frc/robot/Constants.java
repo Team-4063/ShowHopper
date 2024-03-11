@@ -24,10 +24,10 @@ public final class Constants {
 
     public static final class SpeedConstants{
         public static final double kIntakeSpeed = 0.85;
-        public static final double kPivotSpeed = 0.4;
+        public static final double kPivotSpeed = 0.3;
         public static final double kTransitionSpeed = 1;
         public static final double kShootTopAmp = -0.2;
-        public static final double kShootBottomAmp = 0.4;
+        public static final double kShootBottomAmp = 0.5;
         public static final double kShootSubwoofer = 0.65;  
         public static final double kShootPodium = 0.9;
         public static final double kNoShoot = 0.15;

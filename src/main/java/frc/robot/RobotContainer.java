@@ -7,12 +7,14 @@ package frc.robot;
 import com.ctre.phoenix6.Utils;
 import com.ctre.phoenix6.mechanisms.swerve.SwerveRequest;
 import com.ctre.phoenix6.mechanisms.swerve.SwerveModule.DriveRequestType;
-
+import com.pathplanner.lib.auto.AutoBuilder;
+import com.pathplanner.lib.auto.NamedCommands;
 
 import edu.wpi.first.math.geometry.Pose2d;
 import edu.wpi.first.math.geometry.Rotation2d;
 import edu.wpi.first.math.geometry.Translation2d;
-
+import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.Commands;
 
@@ -21,6 +23,7 @@ import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import frc.robot.Constants.OIConstants;
 import frc.robot.Constants.SpeedConstants;
 import frc.robot.commands.IntakeControl;
+import frc.robot.commands.ShooterControl;
 import frc.robot.generated.TunerConstants;
 import frc.robot.subsystems.IntakeSubsystem;
 import frc.robot.subsystems.PivotSubsystem;
@@ -35,13 +38,7 @@ public class RobotContainer {
   private final ShooterSubsystem shooterSubsystem = new ShooterSubsystem();
   private final PivotSubsystem pivotSubsystem = new PivotSubsystem();
 
-  //private final SendableChooser<Command> autoChooser;
-
- // private final PivotSubsystem m_pivot = new PivotSubsystem();
-
-  //private final ShooterSubsystem ShooterWoofSubsystem = new ShooterSubsystem();
-  //private final ShooterSubsystem ShooterPodiumSubsystem = new ShooterSubsystem();
-  //private final ShooterSubsystem ShooterAmpSubsystem = new ShooterSubsystem();
+  private final SendableChooser<Command> autoChooser;
 
   private double MaxSpeed = TunerConstants.kSpeedAt12VoltsMps; // kSpeedAt12VoltsMps desired top speed
   private double MaxAngularRate = 1.5 * Math.PI; // 3/4 of a rotation per second max angular velocity
@@ -56,7 +53,7 @@ public class RobotContainer {
       .withDriveRequestType(DriveRequestType.OpenLoopVoltage); // I want field-centric
                                                                // driving in open loop
   private final SwerveRequest.SwerveDriveBrake brake = new SwerveRequest.SwerveDriveBrake();
-  private final SwerveRequest.PointWheelsAt point = new SwerveRequest.PointWheelsAt();
+  //private final SwerveRequest.PointWheelsAt point = new SwerveRequest.PointWheelsAt();
   private final Telemetry logger = new Telemetry(MaxSpeed);
 
   /*Path follower*/
@@ -137,19 +134,24 @@ public class RobotContainer {
   }
 
   public RobotContainer() {
+
+    NamedCommands.registerCommand("Shoot", new RunCommand(() -> shooterSubsystem.shooterSub(SpeedConstants.kShootSubwoofer), shooterSubsystem));
+    NamedCommands.registerCommand("Transition", new RunCommand(() -> TransitionSubsystem.transitionRun(SpeedConstants.kTransitionSpeed), TransitionSubsystem));
+    NamedCommands.registerCommand("Intake", new IntakeControl(IntakeSubsystem, TransitionSubsystem));
+    NamedCommands.registerCommand("Stop", Commands.runOnce(() -> shooterSubsystem.shooterSub(SpeedConstants.kNoShoot), shooterSubsystem));
+
     configureBindings();
 
-    //NamedCommands.registerCommand("Shoot", new ShooterControl(shooterSubsystem));
 
     //Command runAuto = drivetrain.getAutoPath("testestAuto");
-    //autoChooser = AutoBuilder.buildAutoChooser();
-    //SmartDashboard.putData("Auto Mode", autoChooser);
+    autoChooser = AutoBuilder.buildAutoChooser();
+    SmartDashboard.putData("Auto Mode", autoChooser);
 
   }
 
   public Command getAutonomousCommand() {
-    //return autoChooser.getSelected();
+    return autoChooser.getSelected();
     //return runAuto;
-    return Commands.print("No autonomous command oooooooo configured");//amanda ong was here...the code works ...
+    //return Commands.print("No autonomous command oooooooo configured");//amanda ong was here...the code works ...
   }
 }

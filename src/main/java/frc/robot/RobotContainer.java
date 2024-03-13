@@ -23,7 +23,6 @@ import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import frc.robot.Constants.OIConstants;
 import frc.robot.Constants.SpeedConstants;
 import frc.robot.commands.IntakeControl;
-import frc.robot.commands.ShooterControl;
 import frc.robot.generated.TunerConstants;
 import frc.robot.subsystems.IntakeSubsystem;
 import frc.robot.subsystems.PivotSubsystem;
@@ -57,7 +56,7 @@ public class RobotContainer {
   private final Telemetry logger = new Telemetry(MaxSpeed);
 
   /*Path follower*/
-  private Command runAuto = drivetrain.getAutoPath("testestAuto");
+  //private Command runAuto = drivetrain.getAutoPath("testestAuto");
 
   private void configureBindings() {
     drivetrain.setDefaultCommand( // Drivetrain will execute this command periodically
@@ -78,10 +77,6 @@ public class RobotContainer {
       drivetrain.seedFieldRelative(new Pose2d(new Translation2d(), Rotation2d.fromDegrees(90)));
     }
     drivetrain.registerTelemetry(logger::telemeterize);
-   
-
-//    m_driverController.a().onTrue(new RunCommand(() -> IntakeSubsystem.intakeRun(Constants.SpeedConstants.kIntakeSpeed), IntakeSubsystem))
-//                .onFalse(Commands.runOnce(() -> IntakeSubsystem.intakeRun(0), IntakeSubsystem));
     
     //-------------------Transition Shoot-----------------
     m_driverController.rightTrigger().onTrue(new RunCommand(() -> TransitionSubsystem.transitionRun(Constants.SpeedConstants.kTransitionSpeed), TransitionSubsystem))
@@ -89,23 +84,15 @@ public class RobotContainer {
     //----------------Transition Reverse------------------
     m_driverController.leftTrigger().onTrue(new RunCommand(() -> TransitionSubsystem.transitionRun(-Constants.SpeedConstants.kTransitionSpeed), TransitionSubsystem))
               .onFalse(Commands.runOnce(() -> TransitionSubsystem.transitionRun(0), TransitionSubsystem));
-
-
-
-    //-------------------Shooter Buttons also pivot------------------
-   // m_operatorController.x().onTrue(new PivotControl(Constants.SensorConstants.kWoofPosition, pivotSubsystem, shooterSubsystem, Constants.SpeedConstants.kShootSubwoofer, Constants.SpeedConstants.kShootSubwoofer ))
-                       //     .onFalse(Commands.runOnce(() -> pivotSubsystem.pivotRun(0), pivotSubsystem));
     
     //shooter sub
     m_operatorController.x().onTrue(new RunCommand(() -> shooterSubsystem.shooterSub(Constants.SpeedConstants.kShootSubwoofer), shooterSubsystem))
                 .onFalse(Commands.runOnce(() -> shooterSubsystem.shooterSub(SpeedConstants.kNoShoot), shooterSubsystem));
-   // m_operatorController.y().onTrue(new PivotControl(Constants.SensorConstants.kPodiumPosition, pivotSubsystem, shooterSubsystem, Constants.SpeedConstants.kShootPodium, Constants.SpeedConstants.kShootPodium))
-                           // .onFalse(Commands.runOnce(() -> pivotSubsystem.pivotRun(0), pivotSubsystem));
+
     //shooter podium
     m_operatorController.y().onTrue(new RunCommand(() -> shooterSubsystem.shooterSub(Constants.SpeedConstants.kShootPodium), shooterSubsystem))
                 .onFalse(Commands.runOnce(() -> shooterSubsystem.shooterSub(SpeedConstants.kNoShoot), shooterSubsystem));
-    // m_operatorController.b().onTrue(new PivotControl(Constants.SensorConstants.kAmpPosition, pivotSubsystem, shooterSubsystem, Constants.SpeedConstants.kShootTopAmp, Constants.SpeedConstants.kShootBottomAmp))
-                            //.onFalse(Commands.runOnce(() -> pivotSubsystem.pivotRun(0), pivotSubsystem));
+
     //shooter amp
      m_operatorController.b().onTrue(new RunCommand(() -> shooterSubsystem.shooterAmp(),shooterSubsystem))
                .onFalse(Commands.runOnce(() -> shooterSubsystem.shooterSub(SpeedConstants.kNoShoot), shooterSubsystem));

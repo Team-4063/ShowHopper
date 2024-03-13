@@ -8,8 +8,8 @@
       },
       "prevControl": null,
       "nextControl": {
-        "x": 3.741169874929422,
-        "y": 8.039937615001087
+        "x": 3.545818145767345,
+        "y": 6.314843398917567
       },
       "isLocked": false,
       "linkedName": null
@@ -20,8 +20,8 @@
         "y": 5.5
       },
       "prevControl": {
-        "x": 3.95292379188747,
-        "y": 4.6463267257018845
+        "x": 3.265158439148787,
+        "y": 5.74182983123801
       },
       "nextControl": null,
       "isLocked": false,
@@ -43,7 +43,7 @@
     "rotateFast": false
   },
   "reversed": false,
-  "folder": null,
+  "folder": "Bluetestest",
   "previewStartingState": {
     "rotation": 68.63803708681769,
     "velocity": 0

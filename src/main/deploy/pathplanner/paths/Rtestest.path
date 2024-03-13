@@ -16,11 +16,11 @@
     },
     {
       "anchor": {
-        "x": 12.75,
+        "x": 13.25,
         "y": 5.5
       },
       "prevControl": {
-        "x": 12.734533247163537,
+        "x": 13.234533247163537,
         "y": 5.5
       },
       "nextControl": null,
@@ -43,7 +43,7 @@
     "rotateFast": false
   },
   "reversed": false,
-  "folder": null,
+  "folder": "Redtestest",
   "previewStartingState": {
     "rotation": -179.5836788143408,
     "velocity": 0

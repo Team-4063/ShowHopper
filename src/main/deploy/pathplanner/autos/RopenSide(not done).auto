@@ -2,10 +2,10 @@
   "version": 1.0,
   "startingPose": {
     "position": {
-      "x": 14.75,
-      "y": 5.5
+      "x": 15.65,
+      "y": 6.75
     },
-    "rotation": 180.0
+    "rotation": 135.76
   },
   "command": {
     "type": "sequential",
@@ -43,7 +43,7 @@
               {
                 "type": "wait",
                 "data": {
-                  "waitTime": 1.5
+                  "waitTime": 0.5
                 }
               }
             ]
@@ -69,13 +69,13 @@
           }
         },
         {
-          "type": "deadline",
+          "type": "parallel",
           "data": {
             "commands": [
               {
                 "type": "path",
                 "data": {
-                  "pathName": "Rtestest"
+                  "pathName": "Rfar1"
                 }
               },
               {
@@ -90,7 +90,7 @@
         {
           "type": "path",
           "data": {
-            "pathName": "RtestestBack"
+            "pathName": "Rfar1Back"
           }
         },
         {
@@ -157,76 +157,13 @@
               {
                 "type": "path",
                 "data": {
-                  "pathName": "RtestestCurve"
+                  "pathName": "Rfar2"
                 }
               },
               {
                 "type": "named",
                 "data": {
                   "name": "Intake"
-                }
-              }
-            ]
-          }
-        },
-        {
-          "type": "path",
-          "data": {
-            "pathName": "RtestestCurve2"
-          }
-        },
-        {
-          "type": "race",
-          "data": {
-            "commands": [
-              {
-                "type": "named",
-                "data": {
-                  "name": "Shoot"
-                }
-              },
-              {
-                "type": "wait",
-                "data": {
-                  "waitTime": 0.25
-                }
-              }
-            ]
-          }
-        },
-        {
-          "type": "race",
-          "data": {
-            "commands": [
-              {
-                "type": "named",
-                "data": {
-                  "name": "Transition"
-                }
-              },
-              {
-                "type": "wait",
-                "data": {
-                  "waitTime": 0.5
-                }
-              }
-            ]
-          }
-        },
-        {
-          "type": "race",
-          "data": {
-            "commands": [
-              {
-                "type": "named",
-                "data": {
-                  "name": "Stop"
-                }
-              },
-              {
-                "type": "wait",
-                "data": {
-                  "waitTime": 0.2
                 }
               }
             ]

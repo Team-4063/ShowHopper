@@ -3,13 +3,13 @@
   "waypoints": [
     {
       "anchor": {
-        "x": 12.85,
-        "y": 7.0
+        "x": 13.01,
+        "y": 6.63
       },
       "prevControl": null,
       "nextControl": {
-        "x": 12.85,
-        "y": 6.338217311726506
+        "x": 13.329974759268808,
+        "y": 5.7304129313075975
       },
       "isLocked": false,
       "linkedName": null
@@ -43,7 +43,7 @@
     "rotateFast": false
   },
   "reversed": false,
-  "folder": null,
+  "folder": "Redtestest",
   "previewStartingState": {
     "rotation": 90.5406973818712,
     "velocity": 0

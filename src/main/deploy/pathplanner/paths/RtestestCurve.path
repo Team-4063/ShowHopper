@@ -8,20 +8,20 @@
       },
       "prevControl": null,
       "nextControl": {
-        "x": 13.602763442965573,
-        "y": 5.5
+        "x": 13.75481497401741,
+        "y": 5.613194132371171
       },
       "isLocked": false,
       "linkedName": null
     },
     {
       "anchor": {
-        "x": 12.854365081949537,
-        "y": 7.0
+        "x": 13.006389089701255,
+        "y": 6.630585568863446
       },
       "prevControl": {
-        "x": 12.854365081949537,
-        "y": 6.193103343471644
+        "x": 12.573705375330979,
+        "y": 5.4143935068496925
       },
       "nextControl": null,
       "isLocked": false,
@@ -39,11 +39,11 @@
   },
   "goalEndState": {
     "velocity": 0,
-    "rotation": 91.4320961841646,
+    "rotation": 70.42,
     "rotateFast": false
   },
   "reversed": false,
-  "folder": null,
+  "folder": "Redtestest",
   "previewStartingState": {
     "rotation": -179.64760222391726,
     "velocity": 0

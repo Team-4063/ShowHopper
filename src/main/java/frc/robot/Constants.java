@@ -38,6 +38,6 @@ public final class Constants {
         public static final double kPodiumPosition = 50;
         public static final double kWoofPosition = 70;
         public static final double kAmpPosition = 60;
-        public static final int kNotePosition = 110;
+        public static final int kNotePosition = 130;
     }
 }

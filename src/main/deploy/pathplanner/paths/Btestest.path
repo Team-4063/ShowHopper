@@ -43,7 +43,7 @@
     "rotateFast": false
   },
   "reversed": false,
-  "folder": null,
+  "folder": "Bluetestest",
   "previewStartingState": {
     "rotation": 1.1707123893920037,
     "velocity": 0

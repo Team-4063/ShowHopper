@@ -5,11 +5,12 @@
   "pathFolders": [
     "Bluetestest",
     "BopenSide",
-    "RopenSide",
-    "Redtestest"
+    "BrightLeave",
+    "Redtestest",
+    "RopenSide"
   ],
   "autoFolders": [
-    "New Folder"
+    "RshootRightLeave"
   ],
   "defaultMaxVel": 2.0,
   "defaultMaxAccel": 2.0,

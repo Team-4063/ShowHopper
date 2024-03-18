@@ -114,6 +114,12 @@ public class RobotContainer {
     m_operatorController.a().onTrue(new IntakeControl(IntakeSubsystem, TransitionSubsystem))
                 .onFalse(Commands.runOnce(() -> IntakeSubsystem.intakeRun(0), IntakeSubsystem));
 
+    //----------------------------------Intake Override--------------------------------------------------
+    m_operatorController.rightTrigger().onTrue(new RunCommand(() -> IntakeSubsystem.intakeRun(SpeedConstants.kIntakeSpeed), IntakeSubsystem))
+                                      .onTrue(new RunCommand(() -> TransitionSubsystem.transitionRun(SpeedConstants.kTransitionSpeed), TransitionSubsystem))
+                                      .onFalse(Commands.runOnce(() -> IntakeSubsystem.intakeRun(0), IntakeSubsystem))
+                                      .onFalse(Commands.runOnce(() -> TransitionSubsystem.transitionRun(0), TransitionSubsystem));
+
     //-------------------------------Reverse intake-------------------------
     m_operatorController.leftBumper().onTrue(new RunCommand(() -> IntakeSubsystem.intakeRun(-SpeedConstants.kIntakeSpeed), IntakeSubsystem))
                 .onFalse(Commands.runOnce(() -> IntakeSubsystem.intakeRun(0), IntakeSubsystem));

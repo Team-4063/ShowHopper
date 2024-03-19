@@ -27,11 +27,12 @@ public final class Constants {
         public static final double kPivotSpeed = 0.3;
         public static final double kTransitionSpeed = 1;
         public static final double kShootTopAmp = -0.2;
-        public static final double kShootBottomAmp = 0.5;
+        public static final double kShootBottomAmp = 0.6;//0.5;
         public static final double kShootSubwoofer = 0.65;  
-        public static final double kShootPodium = 0.9;
+        public static final double kShootPodium = 1;
         public static final double kNoShoot = 0.15;
         public static final double kShootLaunch = 0.75;
+        public static final double kClimbSpeed = 0.91;
     }
 
     public static final class SensorConstants{

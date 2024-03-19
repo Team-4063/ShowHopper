@@ -6,10 +6,12 @@
     "Bluetestest",
     "BopenSide",
     "BrightLeave",
+    "Fancy",
     "Redtestest",
     "RopenSide"
   ],
   "autoFolders": [
+    "FourNote",
     "RshootRightLeave"
   ],
   "defaultMaxVel": 2.0,

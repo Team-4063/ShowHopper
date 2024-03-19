@@ -24,6 +24,7 @@ import frc.robot.Constants.OIConstants;
 import frc.robot.Constants.SpeedConstants;
 import frc.robot.commands.IntakeControl;
 import frc.robot.generated.TunerConstants;
+import frc.robot.subsystems.ClimberSubsystem;
 import frc.robot.subsystems.IntakeSubsystem;
 import frc.robot.subsystems.PivotSubsystem;
 import frc.robot.subsystems.TransitionSubsystem;
@@ -36,6 +37,7 @@ public class RobotContainer {
   private final TransitionSubsystem TransitionSubsystem = new TransitionSubsystem();
   private final ShooterSubsystem shooterSubsystem = new ShooterSubsystem();
   private final PivotSubsystem pivotSubsystem = new PivotSubsystem();
+  private final ClimberSubsystem climberSubsystem = new ClimberSubsystem();
 
   private final SendableChooser<Command> autoChooser;
 
@@ -102,6 +104,14 @@ public class RobotContainer {
     //shoot launch
     m_operatorController.rightBumper().onTrue(new RunCommand(() -> shooterSubsystem.shooterSub(Constants.SpeedConstants.kShootLaunch), shooterSubsystem))
                 .onFalse(Commands.runOnce(() -> shooterSubsystem.shooterSub(SpeedConstants.kNoShoot), shooterSubsystem));
+    
+    //climb
+    m_operatorController.povLeft().onTrue(new RunCommand(() -> climberSubsystem.climberOut(Constants.SpeedConstants.kClimbSpeed), climberSubsystem))
+                .onFalse(Commands.runOnce(() -> climberSubsystem.climberOut(0), climberSubsystem));
+    
+    m_operatorController.povRight().onTrue(new RunCommand(() -> climberSubsystem.climberIn(Constants.SpeedConstants.kClimbSpeed), climberSubsystem))
+                .onFalse(Commands.runOnce(() -> climberSubsystem.climberIn(0), climberSubsystem));
+    
     
 
 

@@ -22,6 +22,7 @@ import edu.wpi.first.wpilibj2.command.RunCommand;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import frc.robot.Constants.OIConstants;
 import frc.robot.Constants.SpeedConstants;
+import frc.robot.commands.ClimberStop;
 import frc.robot.commands.IntakeControl;
 import frc.robot.generated.TunerConstants;
 import frc.robot.subsystems.ClimberSubsystem;
@@ -99,20 +100,21 @@ public class RobotContainer {
      m_operatorController.b().onTrue(new RunCommand(() -> shooterSubsystem.shooterAmp(),shooterSubsystem))
                .onFalse(Commands.runOnce(() -> shooterSubsystem.shooterSub(SpeedConstants.kNoShoot), shooterSubsystem));
     //stop shooter
-    m_operatorController.povDown().onTrue(Commands.runOnce(() -> shooterSubsystem.shooterSub(0.0), shooterSubsystem));
+    m_operatorController.povLeft().onTrue(Commands.runOnce(() -> shooterSubsystem.shooterSub(0.0), shooterSubsystem));
 
     //shoot launch
     m_operatorController.rightBumper().onTrue(new RunCommand(() -> shooterSubsystem.shooterSub(Constants.SpeedConstants.kShootLaunch), shooterSubsystem))
                 .onFalse(Commands.runOnce(() -> shooterSubsystem.shooterSub(SpeedConstants.kNoShoot), shooterSubsystem));
     
     //climb
-    m_operatorController.povLeft().onTrue(new RunCommand(() -> climberSubsystem.climberOut(Constants.SpeedConstants.kClimbSpeed), climberSubsystem))
+    //m_operatorController.povDown().onTrue(new RunCommand(() -> climberSubsystem.climberIn(Constants.SpeedConstants.kClimbSpeed), climberSubsystem))
+    //            .onFalse(Commands.runOnce(() -> climberSubsystem.climberIn(0), climberSubsystem));
+    
+    m_operatorController.povUp().onTrue(new RunCommand(() -> climberSubsystem.climberOut(Constants.SpeedConstants.kClimbSpeed), climberSubsystem))
                 .onFalse(Commands.runOnce(() -> climberSubsystem.climberOut(0), climberSubsystem));
     
-    m_operatorController.povRight().onTrue(new RunCommand(() -> climberSubsystem.climberIn(Constants.SpeedConstants.kClimbSpeed), climberSubsystem))
+    m_operatorController.povDown().onTrue(new ClimberStop(climberSubsystem))
                 .onFalse(Commands.runOnce(() -> climberSubsystem.climberIn(0), climberSubsystem));
-    
-    
 
 
 

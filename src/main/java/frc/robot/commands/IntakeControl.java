@@ -26,14 +26,14 @@ public class IntakeControl extends Command {
   // Called when the command is initially scheduled.
   @Override
   public void initialize() {
-    
+    m_intake.intakeRun(SpeedConstants.kIntakeSpeed);
+    m_transition.transitionRun(SpeedConstants.kTransitionSpeed);
   }
 
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    m_intake.intakeRun(SpeedConstants.kIntakeSpeed);
-    m_transition.transitionRun(SpeedConstants.kTransitionSpeed);
+    
   }
 
   // Called once the command ends or is interrupted.
@@ -46,9 +46,11 @@ public class IntakeControl extends Command {
   // Returns true when the command should end.
   @Override
   public boolean isFinished() {
+    /*
     if(m_transition.notePosition() > SensorConstants.kNotePosition){
       return true;
     }else{
-    return false;}
+    return false;} */
+    return m_transition.noteIn();
   }
 }

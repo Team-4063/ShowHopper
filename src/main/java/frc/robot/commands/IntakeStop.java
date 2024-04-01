@@ -31,8 +31,7 @@ public class IntakeStop extends Command {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    m_intake.intakeRun(0);
-    m_transition.transitionRun(0);
+
   }
 
   // Called once the command ends or is interrupted.

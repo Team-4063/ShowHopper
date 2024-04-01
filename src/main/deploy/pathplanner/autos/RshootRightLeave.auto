@@ -69,9 +69,22 @@
           }
         },
         {
-          "type": "path",
+          "type": "parallel",
           "data": {
-            "pathName": "RrightLeave"
+            "commands": [
+              {
+                "type": "path",
+                "data": {
+                  "pathName": "RrightLeave"
+                }
+              },
+              {
+                "type": "named",
+                "data": {
+                  "name": "Intake"
+                }
+              }
+            ]
           }
         }
       ]

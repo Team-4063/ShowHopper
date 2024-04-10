@@ -2,10 +2,10 @@
   "version": 1.0,
   "startingPose": {
     "position": {
-      "x": 15.82468031032928,
-      "y": 4.291754680375458
+      "x": 0.7,
+      "y": 4.4
     },
-    "rotation": -121.60750224624864
+    "rotation": -56.495201891848936
   },
   "command": {
     "type": "sequential",
@@ -69,27 +69,14 @@
           }
         },
         {
-          "type": "parallel",
+          "type": "path",
           "data": {
-            "commands": [
-              {
-                "type": "path",
-                "data": {
-                  "pathName": "RrightLeave"
-                }
-              },
-              {
-                "type": "named",
-                "data": {
-                  "name": "Intake"
-                }
-              }
-            ]
+            "pathName": "BrightLeave"
           }
         }
       ]
     }
   },
-  "folder": null,
+  "folder": "BigStuff",
   "choreoAuto": false
 }

@@ -4,12 +4,12 @@
     {
       "anchor": {
         "x": 2.961110423645348,
-        "y": 4.209895599278378
+        "y": 4.057871591526659
       },
       "prevControl": null,
       "nextControl": {
         "x": 2.927468237272656,
-        "y": 5.507946742389212
+        "y": 5.355922734637493
       },
       "isLocked": false,
       "linkedName": "BlueRightPoint"

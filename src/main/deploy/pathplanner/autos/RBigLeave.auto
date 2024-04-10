@@ -2,10 +2,10 @@
   "version": 1.0,
   "startingPose": {
     "position": {
-      "x": 0.7,
-      "y": 4.4
+      "x": 15.82468031032928,
+      "y": 4.291754680375458
     },
-    "rotation": -56.495201891848936
+    "rotation": -121.60750224624864
   },
   "command": {
     "type": "sequential",
@@ -69,14 +69,52 @@
           }
         },
         {
+          "type": "parallel",
+          "data": {
+            "commands": [
+              {
+                "type": "path",
+                "data": {
+                  "pathName": "RrightLeave"
+                }
+              },
+              {
+                "type": "named",
+                "data": {
+                  "name": "Intake"
+                }
+              }
+            ]
+          }
+        },
+        {
           "type": "path",
           "data": {
-            "pathName": "BrightLeave"
+            "pathName": "RRightReturn"
+          }
+        },
+        {
+          "type": "race",
+          "data": {
+            "commands": [
+              {
+                "type": "named",
+                "data": {
+                  "name": "Shoot"
+                }
+              },
+              {
+                "type": "wait",
+                "data": {
+                  "waitTime": 0.75
+                }
+              }
+            ]
           }
         }
       ]
     }
   },
-  "folder": null,
+  "folder": "BigStuff",
   "choreoAuto": false
 }

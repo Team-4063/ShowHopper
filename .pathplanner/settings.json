@@ -12,7 +12,10 @@
   ],
   "autoFolders": [
     "FourNote",
-    "RshootRightLeave"
+    "BigStuff",
+    "RshootRightLeave",
+    "Simple",
+    "Testest"
   ],
   "defaultMaxVel": 2.0,
   "defaultMaxAccel": 2.0,

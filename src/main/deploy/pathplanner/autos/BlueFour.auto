@@ -100,7 +100,7 @@
               {
                 "type": "path",
                 "data": {
-                  "pathName": "BLeft"
+                  "pathName": "RRight"
                 }
               },
               {
@@ -115,7 +115,7 @@
         {
           "type": "path",
           "data": {
-            "pathName": "BLeftBack"
+            "pathName": "BRightBack"
           }
         },
         {
@@ -144,7 +144,7 @@
               {
                 "type": "path",
                 "data": {
-                  "pathName": "BRight"
+                  "pathName": "BLeft"
                 }
               },
               {
@@ -159,7 +159,7 @@
         {
           "type": "path",
           "data": {
-            "pathName": "RRight"
+            "pathName": "BLeftBack"
           }
         },
         {

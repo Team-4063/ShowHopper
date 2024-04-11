@@ -26,8 +26,8 @@ public final class Constants {
         public static final double kIntakeSpeed = 0.85;
         public static final double kPivotSpeed = 0.3;
         public static final double kTransitionSpeed = 1;
-        public static final double kShootTopAmp = -0.2;
-        public static final double kShootBottomAmp = 0.6;//0.5;
+        public static final double kShootTopAmp = -0.2;//should go back to 20
+        public static final double kShootBottomAmp = 0.6;//0.6;//0.5;
         public static final double kShootSubwoofer = 0.65;  
         public static final double kShootPodium = 1;
         public static final double kNoShoot = 0.15;

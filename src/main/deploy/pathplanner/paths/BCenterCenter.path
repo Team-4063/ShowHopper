@@ -3,25 +3,41 @@
   "waypoints": [
     {
       "anchor": {
-        "x": 14.75,
-        "y": 5.5
+        "x": 1.6045885083223155,
+        "y": 5.507946742389212
       },
       "prevControl": null,
       "nextControl": {
-        "x": 14.796282060793244,
-        "y": 5.5
+        "x": 2.4231793192931113,
+        "y": 4.537331923666697
+      },
+      "isLocked": false,
+      "linkedName": "StartPoint"
+    },
+    {
+      "anchor": {
+        "x": 4.48135050116254,
+        "y": 4.817991630285255
+      },
+      "prevControl": {
+        "x": 3.2473753077705023,
+        "y": 4.806126484194947
+      },
+      "nextControl": {
+        "x": 5.697542563176294,
+        "y": 4.829685784727695
       },
       "isLocked": false,
       "linkedName": null
     },
     {
       "anchor": {
-        "x": 13.25,
-        "y": 5.5
+        "x": 8.036373451664282,
+        "y": 4.092954054853979
       },
       "prevControl": {
-        "x": 13.234533247163537,
-        "y": 5.5
+        "x": 6.282250285298291,
+        "y": 3.99940081931446
       },
       "nextControl": null,
       "isLocked": false,
@@ -39,13 +55,13 @@
   },
   "goalEndState": {
     "velocity": 0,
-    "rotation": -179.5636368137839,
+    "rotation": 0,
     "rotateFast": false
   },
   "reversed": false,
-  "folder": "Redtestest",
+  "folder": "BigStuff",
   "previewStartingState": {
-    "rotation": -179.5836788143408,
+    "rotation": 0,
     "velocity": 0
   },
   "useDefaultConstraints": false

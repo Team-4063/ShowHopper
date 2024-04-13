@@ -40,7 +40,7 @@ public final class Constants {
         public static final double kWoofPosition = 70;
         public static final double kAmpPosition = 60;
         public static final int kNotePosition = 130;
-        public static final int climberLimit = 4;
+        public static final int climberLimit = 3;//just changed this from 4
         public static final int beamReflected = 1;
         public static final int beamNotReflected = 2;
     }

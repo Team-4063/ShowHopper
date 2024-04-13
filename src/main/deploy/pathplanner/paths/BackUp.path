@@ -3,13 +3,13 @@
   "waypoints": [
     {
       "anchor": {
-        "x": 2.0,
-        "y": 5.5
+        "x": 1.6162826627647557,
+        "y": 5.601499977928731
       },
       "prevControl": null,
       "nextControl": {
-        "x": 2.9847738448494283,
-        "y": 5.5
+        "x": 2.6010565076141825,
+        "y": 5.601499977928731
       },
       "isLocked": false,
       "linkedName": null
@@ -45,7 +45,7 @@
   "reversed": false,
   "folder": "Bluetestest",
   "previewStartingState": {
-    "rotation": 1.1707123893920037,
+    "rotation": -0.3326914214257375,
     "velocity": 0
   },
   "useDefaultConstraints": true
